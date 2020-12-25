@@ -40,13 +40,15 @@ $ composer require ytake/starch
 #### Create Class
 
 ```php
-interface AnyInterface {
+interface AnyInterface 
+{
 
 }
 ```
 
 ```php
-final class Any implements AnyInterface {
+final class Any implements AnyInterface 
+{
   // any
 }
 ```
@@ -59,7 +61,7 @@ use Ytake\Starch\Scope;
 
 $container = new Container();
 $container->bind(AnyInterface::class)
-  ->to(Mock::class)
+  ->to(Any::class)
   ->in(Scope::PROTOTYPE);
 ```
 

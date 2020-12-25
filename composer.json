@@ -1,0 +1,41 @@
+{
+  "name": "ytake/starch",
+  "type": "library",
+  "description": "Dependency Injection Container For PHP",
+  "authors": [
+    {
+      "name": "ytake",
+      "email": "yuuki.takezawa@comnect.jp.net"
+    }
+  ],
+  "license": "MIT",
+  "minimum-stability": "stable",
+  "keywords": [
+    "psr11",
+    "psr-11",
+    "container",
+    "dependency injection",
+    "ioc",
+    "di"
+  ],
+  "require": {
+    "php": "^8.0",
+    "psr/container": "^1.0"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^9.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Ytake\\Starch\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "provide": {
+    "psr/container-implementation": "^1.0"
+  }
+}

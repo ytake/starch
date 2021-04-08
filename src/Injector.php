@@ -1,16 +1,20 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ytake\Starch;
 
 use ReflectionClass;
 use ReflectionMethod;
-use RuntimeException;
+use LogicException;
 
+/**
+ * @template T of object
+ */
 final class Injector
 {
     /**
-     * @param ReflectionClass $reflection
+     * @param ReflectionClass<T> $reflection
      */
     public function __construct(
         private ReflectionClass $reflection
@@ -18,7 +22,7 @@ final class Injector
     }
 
     /**
-     * @return Reflection
+     * @return Reflection<T>
      */
     public function getReflectionClass(): Reflection
     {
@@ -35,6 +39,6 @@ final class Injector
             }
             return new Reflection($this->reflection, []);
         }
-        throw new RuntimeException('reflection error');
+        throw new LogicException('reflection error');
     }
 }

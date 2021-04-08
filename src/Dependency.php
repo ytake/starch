@@ -1,17 +1,24 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ytake\Starch;
 
 use ReflectionClass;
-use function is_null;
-use function count;
+use ReflectionException;
 
+use function array_map;
+use function count;
+use function is_null;
+
+/**
+ * @template T of object
+ */
 final class Dependency extends AbstractDependency
 {
     /**
-     * @param ReflectionClass $reflection
-     * @param array $args
+     * @param ReflectionClass<T> $reflection
+     * @param string[] $args
      */
     public function __construct(
         private ReflectionClass $reflection,
@@ -23,7 +30,8 @@ final class Dependency extends AbstractDependency
      * @param Container $container
      * @param int $scope
      * @return object
-     * @throws \ReflectionException
+     * @throws Exception\IdentifierNotFoundException
+     * @throws ReflectionException
      */
     public function resolve(
         Container $container,

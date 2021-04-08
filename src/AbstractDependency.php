@@ -1,9 +1,11 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ytake\Starch;
 
-use RuntimeException;
+use LogicException;
+
 use function is_null;
 
 abstract class AbstractDependency implements DependencyInterface
@@ -19,6 +21,8 @@ abstract class AbstractDependency implements DependencyInterface
         if (!is_null($this->instance)) {
             return $this->instance;
         }
-        throw new RuntimeException('runtime error.');
+        throw new LogicException(
+            'there is an error in the method of specifying the object'
+        );
     }
 }

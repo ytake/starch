@@ -7,4 +7,6 @@
 /nitpick.json export-ignore
 /composer.lock export-ignore
 /tests/ export-ignore
-/phpunit.xml export-ignore
+/phpunit.xml.dist export-ignore
+/phpstan.neon.dist export-ignore
+/.github/ export-ignore

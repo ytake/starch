@@ -1,8 +1,10 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ytake\Starch;
 
+use ReflectionException;
 
 class Bind
 {
@@ -14,7 +16,7 @@ class Bind
 
     /**
      * @param Container $container
-     * @param string $id
+     * @param class-string $id
      * @param DependencyFactory $factory
      */
     public function __construct(
@@ -25,9 +27,9 @@ class Bind
     }
 
     /**
-     * @param string $concrete
+     * @param class-string $concrete
      * @return $this
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function to(
         string $concrete
@@ -62,7 +64,7 @@ class Bind
     }
 
     /**
-     * @return string
+     * @return class-string
      */
     public function getId(): string
     {

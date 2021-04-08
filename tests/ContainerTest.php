@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests;
@@ -85,6 +86,18 @@ final class ContainerTest extends TestCase
         );
         $this->assertSame(
             $container->get(Mock::class),
+            $container->get(Mock::class)
+        );
+    }
+
+    public function testShouldReturnPrototypeInstanceByModule(): void
+    {
+        $container = new Container($this->factory);
+        $container->registerModule(
+            new RegisterService()
+        );
+        $this->assertInstanceOf(
+            Mock::class,
             $container->get(Mock::class)
         );
     }

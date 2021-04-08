@@ -1,16 +1,18 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ytake\Starch;
 
 use ReflectionClass;
+use ReflectionException;
 
 final class DependencyFactory
 {
     /**
-     * @param string $concrete
+     * @param class-string $concrete
      * @return DependencyInterface
-     * @throws \ReflectionException
+     * @throws ReflectionException
      */
     public function makeInstance(
         string $concrete

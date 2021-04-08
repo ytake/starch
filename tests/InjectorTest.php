@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Tests;
@@ -30,7 +31,7 @@ final class InjectorTest extends TestCase
         $this->assertSame(
             [
                 InjectableStub::class,
-                'string'
+                'string',
             ],
             $reflection->getTypehintTexts()
         );

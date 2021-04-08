@@ -1,25 +1,30 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ytake\Starch;
 
 use Psr\Container\ContainerInterface;
 use Ytake\Starch\Exception\IdentifierNotFoundException;
+
 use function array_key_exists;
 use function sprintf;
 
 class Container implements ContainerInterface
 {
-    /** @var array<string, Holder> */
+    /** @var array<class-string, Holder> */
     protected array $bindings = [];
 
+    /**
+     * @param DependencyFactory $factory
+     */
     public function __construct(
         protected DependencyFactory $factory
     ) {
     }
 
     /**
-     * @param string $id
+     * @param class-string $id
      * @return Bind
      */
     public function bind(
@@ -44,7 +49,7 @@ class Container implements ContainerInterface
     }
 
     /**
-     * @param string $id
+     * @param class-string $id
      * @return mixed
      * @throws IdentifierNotFoundException
      */

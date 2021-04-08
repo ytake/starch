@@ -1,15 +1,19 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Ytake\Starch;
 
 use ReflectionClass;
 
+/**
+ * @template T of object
+ */
 final class Reflection
 {
     /**
-     * @param ReflectionClass $class
-     * @param array<\ReflectionType> $typehintTexts
+     * @param ReflectionClass<T> $class
+     * @param string[] $typehintTexts
      */
     public function __construct(
         private ReflectionClass $class,
@@ -18,7 +22,7 @@ final class Reflection
     }
 
     /**
-     * @return ReflectionClass
+     * @return ReflectionClass<T>
      */
     public function getClass(): ReflectionClass
     {
@@ -26,7 +30,7 @@ final class Reflection
     }
 
     /**
-     * @return array
+     * @return string[]
      */
     public function getTypehintTexts(): array
     {
